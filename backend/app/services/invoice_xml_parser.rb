@@ -28,8 +28,7 @@ class InvoiceXmlParser
       receiver_name: receiver["Nombre"],
       subtotal: comprobante["SubTotal"],
       total: comprobante["Total"],
-      uuid: timbre&.[]("UUID"),
-      status: timbre&.[]("UUID").present? ? :paid : :pending
+      uuid: timbre&.[]("UUID")
     }
   end
 end

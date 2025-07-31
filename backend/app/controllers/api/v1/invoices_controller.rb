@@ -1,6 +1,10 @@
 module Api
   module V1
     class InvoicesController < ApplicationController
+      def index
+        render json: Invoice.order(issued_at: :desc)
+      end
+
       def create
         invoice = Invoice.create_from_xml(params[:xml_file])
         render json: { message: "Invoice created successfully", id: invoice.id }, status: :created
