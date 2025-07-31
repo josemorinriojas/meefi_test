@@ -1,3 +1,7 @@
 Rails.application.routes.draw do
-  resources :invoices, only: [:index, :create]
+  namespace :api do
+    namespace :v1 do
+      resources :invoices, only: [:index, :create]
+    end
+  end
 end
