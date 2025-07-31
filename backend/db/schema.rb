@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.0].define(version: 2025_07_31_001006) do
+ActiveRecord::Schema[8.0].define(version: 2025_07_31_191603) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "pg_catalog.plpgsql"
 
@@ -58,6 +58,19 @@ ActiveRecord::Schema[8.0].define(version: 2025_07_31_001006) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "payment_complements", force: :cascade do |t|
+    t.bigint "invoice_id", null: false
+    t.string "uuid"
+    t.datetime "payment_date"
+    t.decimal "total"
+    t.string "xml_url"
+    t.string "pdf_url"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["invoice_id"], name: "index_payment_complements_on_invoice_id"
+  end
+
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "payment_complements", "invoices"
 end
