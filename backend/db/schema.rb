@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.0].define(version: 2025_07_31_191603) do
+ActiveRecord::Schema[8.0].define(version: 2025_08_02_175837) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "pg_catalog.plpgsql"
 
@@ -56,6 +56,18 @@ ActiveRecord::Schema[8.0].define(version: 2025_07_31_191603) do
     t.integer "status", default: 0
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "issuer_fiscal_regime"
+    t.string "issuer_postal_code"
+    t.string "receiver_fiscal_regime"
+    t.string "receiver_tax_zip_code"
+    t.string "receiver_cfdi_use"
+    t.string "payment_method"
+    t.string "payment_form"
+    t.string "currency"
+    t.string "exportation"
+    t.decimal "tax_rate", precision: 5, scale: 4
+    t.decimal "tax_base", precision: 15, scale: 2
+    t.decimal "tax_amount", precision: 15, scale: 2
   end
 
   create_table "payment_complements", force: :cascade do |t|
