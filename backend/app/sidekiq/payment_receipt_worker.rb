@@ -1,4 +1,4 @@
-class PaymentReceiptWorkerJob
+class PaymentReceiptWorker
   include Sidekiq::Job
 
   def perform(invoice_id)
