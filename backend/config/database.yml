@@ -18,3 +18,6 @@ production:
   username: <%= ENV['DB_USERNAME'] || 'admin' %>
   password: <%= ENV['DB_PASSWORD'] || 'admin' %>
   timeout: 5000
+
+cable:
+  <<: *production
