@@ -2,7 +2,7 @@ module Api
   module V1
     class InvoicesController < ApplicationController
       def index
-        render json: Invoice.order(issued_at: :desc)
+        render json: Invoice.all
       end
 
       def create

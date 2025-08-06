@@ -1,6 +1,7 @@
 class Invoice < ApplicationRecord
   has_one_attached :xml_file
   has_many :payment_complements, inverse_of: :invoice, dependent: :destroy
+  default_scope { order(created_at: :desc) }
 
   enum :status, { pending: 0, payed: 1 }
 
