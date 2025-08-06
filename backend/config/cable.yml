@@ -13,3 +13,4 @@ production:
   connects_to:
     database:
       writing: production
+      queue: production
