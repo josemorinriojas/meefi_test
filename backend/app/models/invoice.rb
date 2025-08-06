@@ -20,7 +20,7 @@ class Invoice < ApplicationRecord
   end
 
   def generate_complement
-    PaymentReceiptWorker.new.perform(id)
+    PaymentReceiptWorker.perform_async(id)
   end
 
   def payed!
