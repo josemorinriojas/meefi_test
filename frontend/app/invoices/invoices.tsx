@@ -12,7 +12,7 @@ export default function Invoices() {
   useEffect(() => {
     async function fetchInvoices() {
       try {
-        const res = await fetch(`${API_BASE_URL}/invoices`)
+        const res = await fetch(`${API_BASE_URL}/3/cfdis/invoices`)
         if (!res.ok) throw new Error("Error al obtener facturas")
         const data = await res.json()
         setInvoices(data)
